@@ -6,15 +6,15 @@
 <title>Happy Birthday HanKuri 🎂</title>
 
 <style>
-/* ===================== BASE ===================== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
 body{
 background:#000;
 color:#fff;
 overflow-x:hidden;
 }
 
-/* ===================== CANVAS ===================== */
+/* canvas */
 canvas{
 position:fixed;
 top:0;
@@ -24,11 +24,10 @@ height:100%;
 z-index:-1;
 }
 
-/* ===================== COUNTDOWN ===================== */
+/* countdown */
 #countdown{
 height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
@@ -36,29 +35,27 @@ text-align:center;
 
 .box{
 border:1px solid gold;
-padding:30px;
+padding:25px;
 border-radius:15px;
 box-shadow:0 0 20px gold;
 }
 
 .timer{
 display:flex;
-gap:15px;
-margin-top:20px;
-}
-
-.timer div{
-text-align:center;
+gap:10px;
+justify-content:center;
+margin-top:15px;
 }
 
 .timer span{
-font-size:2rem;
 color:gold;
+font-size:1.8rem;
 }
 
-/* ===================== MAIN ===================== */
+/* hidden */
 .hidden{display:none;}
 
+/* header */
 header{
 text-align:center;
 padding:20px;
@@ -70,93 +67,36 @@ button{
 padding:10px 15px;
 border:none;
 background:gold;
-cursor:pointer;
 border-radius:10px;
+cursor:pointer;
 }
 
-/* ===================== GALLERY ===================== */
+/* gallery */
 .gallery{
-padding:40px;
+padding:30px;
 text-align:center;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:10px;
 }
 
 .card{
-background:#111;
 border:1px solid gold;
 border-radius:10px;
 overflow:hidden;
 cursor:pointer;
-transition:0.3s;
 }
-
-.card:hover{transform:scale(1.05);}
 
 .card img{
 width:100%;
-height:140px;
+height:120px;
 object-fit:cover;
 }
 
-/* ===================== MESSAGE ===================== */
-.message{
-max-width:700px;
-margin:40px auto;
-text-align:center;
-padding:20px;
-border:1px solid gold;
-border-radius:15px;
-}
-
-/* ===================== MODAL ===================== */
-#modal{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-justify-content:center;
-align-items:center;
-}
-
-#modal img{
-max-width:90%;
-max-height:90%;
-border:3px solid gold;
-}
-
-/* ===================== FIREWORKS TEXT ===================== */
-.final{
-text-align:center;
-padding:60px;
-color:gold;
-font-size:2rem;
-}
-
-/* ===================== MOBILE ===================== */
-@media(max-width:600px){
-.timer{flex-wrap:wrap;}
-}
-.footer{
-text-align:center;
-padding:40px 20px;
-color:#aaa;
-font-size:14px;
-border-top:1px solid rgba(255,215,0,0.2);
-margin-top:50px;
-}
-
-.footer span{
-color:gold;
-font-weight:bold;
-}
-
-/* ===================== INTRO SCREEN ===================== */
+/* intro */
 #intro{
 position:fixed;
 top:0;
@@ -165,344 +105,262 @@ width:100%;
 height:100vh;
 background:#000;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
-flex-direction:column;
 z-index:9999;
-text-align:center;
-animation:fadeOut 1s ease forwards;
-animation-delay:5s;
-}
-
-.intro-content{
-animation:zoomIn 2s ease;
-}
-
-.title{
-font-size:2.5rem;
-color:gold;
-text-shadow:0 0 20px gold;
-margin-bottom:10px;
-}
-
-.name{
-font-size:3rem;
-color:white;
-animation:glow 1.5s infinite alternate;
-}
-
-.sub{
-margin-top:10px;
-color:#aaa;
-font-size:14px;
-}
-
-/* glow animation */
-@keyframes glow{
-from{ text-shadow:0 0 5px gold; }
-to{ text-shadow:0 0 25px gold; }
-}
-
-/* zoom in effect */
-@keyframes zoomIn{
-from{ transform:scale(0.5); opacity:0; }
-to{ transform:scale(1); opacity:1; }
-}
-
-/* fade out screen */
-@keyframes fadeOut{
-to{
-opacity:0;
-visibility:hidden;
-}
 }
 
 .loader{
 width:200px;
 height:6px;
 background:#222;
-border-radius:20px;
-margin:20px auto;
+margin-top:20px;
+border-radius:10px;
 overflow:hidden;
-border:1px solid gold;
 }
 
 .bar{
-width:0%;
 height:100%;
+width:0%;
 background:gold;
-animation:load 5s linear forwards;
+animation:load 4s linear forwards;
 }
 
 @keyframes load{
-from{width:0%;}
 to{width:100%;}
 }
 
+/* dropbox */
+#deactivateBox{
+position:fixed;
+top:15px;
+right:15px;
+background:rgba(0,0,0,0.85);
+border:1px solid gold;
+padding:12px;
+border-radius:10px;
+width:200px;
+z-index:999;
+}
+
+.smallTimer{
+color:gold;
+font-size:13px;
+margin-top:5px;
+}
+
+/* farewell */
+#farewell{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#000;
+text-align:center;
+z-index:9999;
+}
+
+.farewellBox{
+border:1px solid gold;
+padding:25px;
+border-radius:15px;
+}
 </style>
 </head>
 
 <body>
 
-  <!-- INTRO SPLASH -->
+<!-- INTRO -->
 <div id="intro">
-  <div class="intro-content">
-
-    <h1>🎂 Happy Birthday 🎂</h1>
-    <h2>HanKuri 💛</h2>
-
-    <p>Preparing your surprise...</p>
-
-    <div class="loader">
-      <div class="bar"></div>
-    </div>
-
-  </div>
+<h1 style="color:gold;">🎂 Happy Birthday HanKuri</h1>
+<p>Loading experience...</p>
+<div class="loader"><div class="bar"></div></div>
 </div>
 
 <canvas id="fx"></canvas>
 
 <!-- COUNTDOWN -->
-<section id="countdown">
-  <div class="box">
-    <h1>🎁 Unlocking Surprise for HanKuri</h1>
+<div id="countdown">
+<div class="box">
+<h2>Countdown</h2>
 
-    <div class="timer">
-      <div><span id="d">00</span><p>Days</p></div>
-      <div><span id="h">00</span><p>Hours</p></div>
-      <div><span id="m">00</span><p>Min</p></div>
-      <div><span id="s">00</span><p>Sec</p></div>
-    </div>
-  </div>
-</section>
+<div class="timer">
+<div><span id="d">0</span>D</div>
+<div><span id="h">0</span>H</div>
+<div><span id="m">0</span>M</div>
+<div><span id="s">0</span>S</div>
+</div>
+
+</div>
+</div>
 
 <!-- MAIN -->
 <main id="main" class="hidden">
 
 <header>
 <h1>Happy Birthday <span>HanKuri</span> 🎂</h1>
-<button id="musicBtn">🎵 Music</button>
+<button onclick="toggleMusic()">Music</button>
 </header>
 
-<section class="gallery">
-<h2>📸 Memories</h2>
-<div class="grid" id="grid"></div>
+<section class="gallery" id="grid"></section>
+
+<section style="text-align:center;padding:20px;">
+<p>💛 A special message for you 💛</p>
+<p>You are loved beyond words.</p>
 </section>
-
-<section class="message">
-<h2>💌 <br>A Letter</h2>
-<p>
-Dear HanKuri,<br><br>
-You are a rare soul — kind, beautiful, and irreplaceable.<br>
-May your life shine brighter every year.<br>
-            <br>Today is all about celebrating you.<br>
-
-            Thank you for every smile, every laugh,
-            and every beautiful memory.<br>
-
-            May your life be filled with happiness,
-            peace, success and endless blessings.<br><br>
-
-Happy Birthday ❤️
-</p>
-</section>
-
-<section class="final">
-✨ HAPPY BIRTHDAY HANKURI ✨
-</section>
-
-<footer class="footer">
-  <p>✨ Crafted with love by <span>Arum Enoch</span> for HanKuri 💛</p>
-</footer>
 
 </main>
 
-<!-- MODAL -->
-<div id="modal"><img></div>
+<!-- DROPBOX -->
+<div id="deactivateBox" class="hidden">
+<div>⚠️ Ends soon</div>
+<div class="smallTimer" id="dbox">--</div>
+</div>
 
-<audio id="music" autoplay loop>
-  <source src="Limoblaze, Krisirie - Sunshine & Laughter (Official Audio).mp3" type="audio/mpeg">
+<!-- FAREWELL -->
+<div id="farewell" class="hidden">
+<div class="farewellBox">
+<h1>💛 Experience Ended</h1>
+<p>Happy Birthday HanKuri</p>
+</div>
+</div>
+
+<audio id="music" loop>
+<source src="Oh My God [F3u80TkBVAA].mp3">
 </audio>
 
 <script>
 
-/* ===================== INTRO CONTROL ===================== */
-function startIntroSequence(){
-
-// after 5 seconds intro disappears
-setTimeout(()=>{
-
-document.getElementById("intro").style.display="none";
-
-// show main site
-document.getElementById("main").classList.remove("hidden");
-
-// START MUSIC
+/* ===================== TIMING ===================== */
+const birthdayStart = Date("June 13, 2026 00:00:00");
+const endTime = Date("June 14, 2026 00:00:00");
+/* ===================== MUSIC ===================== */
 const music = document.getElementById("music");
-
-music.play().catch(()=>{
-// fallback: play on first click
-document.body.addEventListener("click",()=>{
-music.play();
-},{once:true});
-});
-
-// start effects
-startFX();
-
-},5000);
+function toggleMusic(){
+music.paused ? music.play() : music.pause();
 }
 
-
-
-/* ===================== DATA ===================== */
-const target = new Date("June 13, 2026 00:00:00");
-
-const photos = [
-"IMG-20260612-WA0036.jpg",
-"IMG-20260612-WA0037.jpg",
-"IMG-20260612-WA0038.jpg",
-"IMG-20260612-WA0057.jpg",
-"IMG-20260612-WA0059.jpg",
-"IMG-20250829-WA0164(1).jpg",
-"IMG-20260406-WA0037(2).jpg",
-"IMG-20260522-WA0080.jpg",
-"IMG-20260612-WA0058.jpg",
-"IMG-20260612-WA0056.jpg",
-
-];
-
-/* ===================== COUNTDOWN ===================== */
-function update(){
-const now = new Date();
-const diff = target - now;
-
-if(diff <= 0){
-document.getElementById("countdown").style.display="none";
+/* ===================== INTRO ===================== */
+function startIntro(){
+setTimeout(()=>{
+document.getElementById("intro").style.display="none";
 document.getElementById("main").classList.remove("hidden");
+music.play().catch(()=>{});
 startFX();
+},4000);
+}
+
+/* ===================== UPDATE ===================== */
+function update(){
+const now = Date.now();
+
+if(now >= endTime){
+showFarewell();
 return;
 }
+
+if(now >= birthdayStart){
+
+document.getElementById("deactivateBox").classList.remove("hidden");
+
+let diff = endTime - now;
+document.getElementById("dbox").innerText =
+Math.floor(diff/1000) + "s left";
+
+if(!window.started){
+window.started = true;
+startIntro();
+}
+return;
+}
+
+let diff = birthdayStart - now;
 
 document.getElementById("d").innerText=Math.floor(diff/86400000);
 document.getElementById("h").innerText=Math.floor(diff/3600000%24);
 document.getElementById("m").innerText=Math.floor(diff/60000%60);
 document.getElementById("s").innerText=Math.floor(diff/1000%60);
 }
-setInterval(update,1000);
-update();
 
-/* ===================== MUSIC ===================== */
-const music=document.getElementById("music");
-document.getElementById("musicBtn").onclick=()=>{
-music.paused?music.play():music.pause();
-};
+/* ===================== FAREWELL ===================== */
+function showFarewell(){
+document.getElementById("main").classList.add("hidden");
+document.getElementById("deactivateBox").classList.add("hidden");
+document.getElementById("farewell").classList.remove("hidden");
+music.pause();
+}
 
-/* ===================== GALLERY ===================== */
-const grid=document.getElementById("grid");
-const modal=document.getElementById("modal");
-const modalImg=document.querySelector("#modal img");
-
-photos.forEach(p=>{
-const c=document.createElement("div");
-c.className="card";
-c.innerHTML=`<img src="${p}">`;
-
-c.onclick=()=>{
-modal.style.display="flex";
-modalImg.src=p;
-};
-
-grid.appendChild(c);
-});
-
-modal.onclick=()=>modal.style.display="none";
-
-/* ===================== CANVAS SETUP ===================== */
-const canvas=document.getElementById("fx");
-const ctx=canvas.getContext("2d");
+/* ===================== FIREWORKS (FIXED + STRONG) ===================== */
+const canvas = document.getElementById("fx");
+const ctx = canvas.getContext("2d");
 
 function resize(){
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 }
 resize();
-window.addEventListener("resize",resize);
+window.addEventListener("resize", resize);
 
-/* ===================== PARTICLES ===================== */
-let particles=[];
-let fireworks=[];
+let fireworks = [];
 
-/* background particles */
+function createFirework(){
+const x = Math.random() * canvas.width;
+const y = Math.random() * canvas.height * 0.5;
+
 for(let i=0;i<60;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-v:Math.random()*0.5+0.2
+fireworks.push({
+x,
+y,
+vx:(Math.random()-0.5)*8,
+vy:(Math.random()-0.5)*8,
+alpha:1,
+fade:Math.random()*0.02 + 0.01,
+size:Math.random()*2.5 + 1
 });
 }
+}
 
-/* ===================== DRAW LOOP ===================== */
 function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle = "rgba(0,0,0,0.25)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-/* BACKGROUND PARTICLES */
-ctx.fillStyle="gold";
-particles.forEach(p=>{
+for(let i=fireworks.length-1;i>=0;i--){
+let f = fireworks[i];
+
 ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.globalAlpha = f.alpha;
+ctx.fillStyle = "gold";
+ctx.arc(f.x,f.y,f.size,0,Math.PI*2);
 ctx.fill();
 
-p.y += p.v;
-if(p.y > canvas.height){
-p.y = 0;
-}
-});
-
-/* FIREWORKS */
-fireworks.forEach((f,i)=>{
-ctx.beginPath();
-ctx.fillStyle="rgba(255,215,0,0.8)";
-ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-ctx.fill();
-
-f.life--;
-f.y += f.vy;
 f.x += f.vx;
+f.y += f.vy;
+f.alpha -= f.fade;
 
-if(f.life <= 0){
+if(f.alpha <= 0){
 fireworks.splice(i,1);
 }
-});
+}
 
+ctx.globalAlpha = 1;
 requestAnimationFrame(draw);
 }
 draw();
 
-/* ===================== FIREWORK SYSTEM ===================== */
-function createFirework(){
-const x = canvas.width/2;
-const y = canvas.height/2;
-
-for(let i=0;i<40;i++){
-fireworks.push({
-x,
-y,
-r:Math.random()*2.5,
-vx:(Math.random()-0.5)*6,
-vy:(Math.random()-0.5)*6,
-life:60
-});
-}
-}
-
-/* start after unlock */
 function startFX(){
-setInterval(createFirework,1500);
+setInterval(createFirework, 700);
 }
+
+/* ===================== LOOP ===================== */
+setInterval(update, 1000);
+update();
+
 </script>
 
 </body>
 </html>
-
